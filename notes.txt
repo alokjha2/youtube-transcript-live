@@ -1,7 +1,7 @@
 
 git init
 git add .
-git commit -m "api working. first version live"
+git commit -m "added download feature, can see video details, etc "
 git branch -M main
 git remote add origin https://github.com/alokjha2/youtube-transcript-live.git
 git push -u origin main
