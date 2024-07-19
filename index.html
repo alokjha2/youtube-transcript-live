@@ -34,7 +34,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "132715074";
+    const serviceWorkerVersion = "4119287805";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -42,17 +42,19 @@
 </head>
 <body>
   <script>
-    (function() {
-      const engineInitializer = window.engineInitializer;
-      const config = {
-        renderer: 'canvaskit', // or 'html'
-      };
-      engineInitializer.initializeEngine(config).then(() => {
-        console.log('Flutter engine initialized');
-      }).catch((error) => {
-        console.error('Error initializing Flutter engine:', error);
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
       });
-    })();
+    });
   </script>
 </body>
 </html>
