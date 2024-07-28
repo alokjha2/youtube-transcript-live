@@ -1,4 +1,3 @@
-Projects
 <details>
  <summary>⚪️ Transcribot - Convert Youtube video into Accurate Transcripts</summary>
   <br />
